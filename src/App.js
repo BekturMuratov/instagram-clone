@@ -5,6 +5,7 @@ import { db, auth } from "./Firebase";
 import { makeStyles, Button, Input } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import ImageUpload from "./components/ImageUpload";
+import InstagramEmbed from "react-instagram-embed";
 
 function getModalStyle() {
   const top = 50;
@@ -166,16 +167,37 @@ function App() {
      
 
       <h2>Welcome to Instagram</h2>
-
-      {posts.map(({ id, post }) => (
+<div className="app__posts">
+  <div className="app__postLeft">
+  {posts.map(({ id, post }) => (
         <Post
           key={id}
+          postId={id}
           avatar={post.avatar}
           username={post.username}
           caption={post.caption}
           imageUrl={post.imageUrl}
         />
       ))}
+  </div>
+  <div className="app__postRight">
+  <InstagramEmbed
+  url='https://instagr.am/p/Zw9o4/'
+  maxWidth={320}
+  hideCaption={false}
+  containerTagName='div'
+  protocol=''
+  injectScript
+  onLoading={() => {}}
+  onSuccess={() => {}}
+  onAfterRender={() => {}}
+  onFailure={() => {}}
+/>
+  </div>
+     
+</div>
+
+      
 
        {user?.displayName ? (
       <ImageUpload username={user.displayName} />

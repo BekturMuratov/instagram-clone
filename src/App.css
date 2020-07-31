@@ -23,3 +23,14 @@
   text-align: center;
   padding: 20px;
 }
+.app__postLeft{
+  margin-right: 20px;
+}
+.app__postRight{
+  margin-left: 20px;
+}
+.app__posts{
+  padding:20px;
+  display: flex;
+  justify-content: center;
+}
